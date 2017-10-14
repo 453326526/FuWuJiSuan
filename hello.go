@@ -2,9 +2,7 @@ package main
   
 import "fmt"  
   
-    fmt.Printf("hello, world\n")  
-
-
-
-    
-}  
+func main() {  
+    fmt.Printf("hello, world\n")
+    fmt.Printf("hello, lm\n")
+}
