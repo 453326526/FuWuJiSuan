@@ -105,7 +105,8 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 1.
 
-    $ ./selpg -s 1 -e 1  -l 5 longtimetosee
+    $ ./selpg -s 0 -e 1  -l 5 longtimetosee
+		从longtimetosee读取第一页，人工设置为一页5行，所以成功读取10行
 
         I walk these streets,searching to find 
     	The steps that we left behind 
@@ -122,6 +123,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 
 	$ ./selpg -s 0 -e 1 -f longtimetosee.txt
+		从longtimetosee读取第一页，自动设置行数，由于文件行数少直接全部读取了
 
 		I walk these streets,searching to find 
 		The steps that we left behind 
@@ -163,6 +165,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     $ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
 
     $ less output
+		从longtimetosee读取第一页到第二页，一页设置为6行，这里重定向将输出写到output里面
 
         In this place,you entered my life 
     	How I wish,you were still mine 
@@ -183,6 +186,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 4.
 
     $ ./selpg -s=0 -e=1 -l 5 < longtimetosee
+		从longtimetosee读取第0页到第1页，一页设置为5行，标准输入已被 shell／内核重定向为longtimetosee	
 
     	I walk these streets,searching to find 
     	The steps that we left behind 
@@ -198,7 +202,8 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 5.
 
 	$ ./selpg -s -20 -e 3 -l 10 longtimetosee >output 2>error
-
+		从longtimetosee读取第20页到第3页，一页设置为10行，由于参数设置不符合规范
+		会直接将错误信息即Invalidinput导入到error里面，而在output里面导出selpg的使用方法
     $ less output
     
     Usage of selpg:
@@ -218,7 +223,8 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 6.
 
     $ cat longtimetosee | ./selpg -s 1 -e 2 -l 5
-
+		cat的标准输出被 shell／内核重定向至 selpg 的标准输入。
+		将第 1 页到第 2 页(每页5行)写至 selpg 的标准输出（屏幕）。
         I see your smile,lies behind 
     	In this place,you entered my life 
     	How I wish,you were still mine 
