@@ -1,0 +1,154 @@
+# selpg 程序逻辑
+
+        selpg 是从文本输入选择页范围的实用程序。该输入可以来自作为最后一个命令行参数指定的文件，在没有给出文件名参数时也可以来自标准输入。
+        selpg首先处理所有的命令行参数。在扫描了所有的选项参数（也就是那些以连字符为前缀的参数）后，如果 selpg 发现还有一个参数，则它会接受该参数为输入文件的名称并尝试打开它以进行读取。如果没有其它参数，则 selpg 假定输入来自标准输入。
+
+## 参数处理
+
+    selpg -s=Number -e=Number [options] [filename]
+
+* `-s=Number` Specify the start number. Must be the first argument.
+* `-e=Number` Specify the end number. Must be the second argument.
+    
+    “-sNumber”和“-eNumber”强制选项：
+selpg 要求用户用两个命令行参数“-sNumber”（例如，“-s10”表示从第 10 页开始）和
+“-eNumber”（例如，“-e20”表示在第 20 页结束）指定要抽取的页面范围的起始页和结束页。
+selpg 对所给的页号进行合理性检查；换句话说，它会检查两个数字是否为有效的正整数以及结束页是否不小于起始页。
+这两个选项，“-sNumber”和“-eNumber”是强制性的，而且必须是命令行上在命令名 selpg 之后的头两个参数。
+* `-l=number` [option] Set the number of line per page. Default is 72.
+* `-f` [option] Pagers are separated by /f is true. Default is false.
+    
+    selpg 可以处理两种输入文本： 
+
+    类型 1：该类文本的页行数固定。这是缺省类型，因此不必给出选项进行说明。也就是说，如果既没有给出“-lNumber”也没有给出“-f”选项
+    ，则 selpg 会理解为页有固定的长度（每页 72 行）。
+
+    类型 2：该类型文本的页由 ASCII 换页字符（十进制数值为 12，在 C 中用“\f”表示）定界。该格式与“每页行数固定”格式相比的好处在于
+    ，当每页的行数有很大不同而且文件有很多页时，该格式可以节省磁盘空间。在含有文本的行后面，类型 2 的页只需要一个字符 ― 换页 ― 就可以表示该页的结束
+    。打印机会识别换页符并自动根据在新的页开始新行所需的行数移动打印头。 
+* `filename` [option] Input from this file. Default is input from standard input.
+
+## 示例
+
+        测例将使用一个名为 longtimetosee的txt文档进行测试，其具体内容为
+        
+            I walk these streets,searching to find 
+        	The steps that we left behind 
+        	Your lonely eyes stare back at mine 
+        	In pictures from that time 
+        	I hold my heart,closing my eyes 
+        	I see your smile,lies behind 
+        	In this place,you entered my life 
+        	How I wish,you were still mine 
+        	I know that if I see you again 
+        	Beside that cafe we met 
+        	I had forget about the past 
+        	Lose track of time,with you 
+        	Talking about our lives 
+        	To show you a whole new side of me 
+        	And see the changes we£§ve made,can we 
+        	Be more than we have been 
+        	Start our story again 
+        	All I can say,is tell you just one thing 
+        	I hold my heart,closing my eyes 
+        	I see your smile,lies behind 
+        	In this place,you entered my life 
+        	How I wish,you were still mine 
+        	I know that if I see you again 
+        	Beside that cafe we met 
+        	I had forget about the past 
+        	Lose track of time,with you 
+        	Talking about our lives 
+        	To show you a whole new side of me 
+        	And see the changes we£§ve made,can we 
+        	Be more than we have been 
+        	Start our story again 
+        	All I can say,is tell you just one thing 
+
+
+下面是具体的测试样例
+
+1.
+
+    $ ./selpg -s 1 -e 1  -l 5 longtimetosee
+
+        I walk these streets,searching to find 
+    	The steps that we left behind 
+    	Your lonely eyes stare back at mine 
+    	In pictures from that time 
+    	I hold my heart,closing my eyes 
+    	I see your smile,lies behind 
+    	In this place,you entered my life 
+    	How I wish,you were still mine 
+    	I know that if I see you again 
+    	Beside that cafe we met
+
+2.
+
+	$ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
+
+    $ less output
+    
+        In this place,you entered my life 
+    	How I wish,you were still mine 
+    	I know that if I see you again 
+    	Beside that cafe we met 
+    	I had forget about the past 
+    	Lose track of time,with you 
+    	Talking about our lives 
+    	To show you a whole new side of me 
+    	And see the changes we<A3><A7>ve made,can we 
+    	Be more than we have been 
+    	Start our story again 
+    	All I can say,is tell you just one thing 
+
+3.
+
+    $ cat longtimetosee | ./selpg -s 1 -e 2 -l 5
+
+        I see your smile,lies behind 
+    	In this place,you entered my life 
+    	How I wish,you were still mine 
+    	I know that if I see you again 
+    	Beside that cafe we met 
+    	I had forget about the past 
+    	Lose track of time,with you 
+    	Talking about our lives 
+    	To show you a whole new side of me 
+    	And see the changes we have made,can we 
+
+
+4.
+
+	$ ./selpg -s=0 -e=1 -l 5 < longtimetosee
+
+    	I walk these streets,searching to find 
+    	The steps that we left behind 
+    	Your lonely eyes stare back at mine 
+    	In pictures from that time 
+    	I hold my heart,closing my eyes 
+    	I see your smile,lies behind 
+    	In this place,you entered my life 
+    	How I wish,you were still mine 
+    	I know that if I see you again 
+    	Beside that cafe we met 
+    
+5.
+
+    $ selpg -s -20 -e 3 -l 10 longtimetosee >output 2>error
+    $ less output
+    
+    Usage of selpg:
+    
+    This is the selpg.
+        selpg -s=Number -e=Number [options] [filename]
+        -s=Number       Start from Page <number>.
+        -e=Number       End to Page <number>.
+        -f              [options]Specify that the pages are sperated by \f.
+        [filename] ---------- Read input from this file.
+        If filename is not given, it will read input from stdin. Ctrl+D to cutout.
+
+
+    $ less error
+	    Invalid input
+
