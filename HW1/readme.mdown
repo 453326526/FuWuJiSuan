@@ -33,37 +33,36 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 ## 设计思路
 
-    * . 引入必要的包
-    		import (
-    			"fmt"
-    			"io"
-    			"flag"
-    			"bufio"
-    			"os"
-    		)
-    * . 定义了一个类型，即： 
-            selpg_args 结构
-            #golang
-            type Selpg_args struct {
-                start_page int
-            	end_page int
-            	input_filename string
-            	page_len int
-            	page_type int
-            	form_feed_delimited bool
-            }
-    * . 构造相关函数
-            a.  func FlagInit
-    			对一些变量进行初始化
-    		b.  func process_args
-    			用于判断参数的合法性。包括判断起始页和终止页的合法性，-f和-l的互斥,
-    			设置页面长度初始值。
-    		c.  func process_input
-    			对用户的输入进行判断分解，并进行相关命令操作
-    		d.  func usage
-    			给用户展示selpg的相关使用与参数意义
-    		e.  main 
-    			主函数
+    1 . 引入必要的包
+        import (
+    		"fmt"
+    		"io"
+    		"flag"
+    		"bufio"
+    		"os"
+    	 )
+    2 . 定义了一个类型，即： 
+        selpg_args 结构
+        type Selpg_args struct {
+            start_page int
+            end_page int
+            input_filename string
+            page_len int
+            page_type int
+            form_feed_delimited bool
+        }
+    3 . 构造相关函数
+        a.  func FlagInit
+    		对一些变量进行初始化
+    	 b.  func process_args
+    		用于判断参数的合法性。包括判断起始页和终止页的合法性，-f和-l的互斥,
+    		设置页面长度初始值。
+    	 c.  func process_input
+    		对用户的输入进行判断分解，并进行相关命令操作
+    	 d.  func usage
+    		给用户展示selpg的相关使用与参数意义
+    	 e.  main 
+    		主函数
 
 
 ## 示例
