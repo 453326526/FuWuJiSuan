@@ -162,8 +162,9 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     	Beside that cafe we met 
     
 5.
+
+	$ ./selpg -s -20 -e 3 -l 10 longtimetosee >output 2>error
 	
-    $ ./selpg -s -20 -e 3 -l 10 longtimetosee >output 2>error
     $ less output
     
     Usage of selpg:
