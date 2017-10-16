@@ -34,11 +34,11 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 ## 设计思路
 
     1. 引入必要的包
-        "fmt"
-        "io"
-    	"flag"
-    	"bufio"
-    	"os"
+		"fmt"
+		"io"
+		"flag"
+		"bufio"
+		"os"
     2. 定义了一个类型，即： 
         selpg_args 结构
         type Selpg_args struct {
