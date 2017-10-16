@@ -36,7 +36,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
         测例将使用一个名为 longtimetosee的txt文档进行测试，其具体内容为
         
             I walk these streets,searching to find 
-        	The steps that we left behind 
+            The steps that we left behind 
         	Your lonely eyes stare back at mine 
         	In pictures from that time 
         	I hold my heart,closing my eyes 
@@ -126,7 +126,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 3.
 	
-	$ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
+    $ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
 
     $ less output
     
@@ -148,7 +148,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 4.
 
-	$ ./selpg -s=0 -e=1 -l 5 < longtimetosee
+    $ ./selpg -s=0 -e=1 -l 5 < longtimetosee
 
     	I walk these streets,searching to find 
     	The steps that we left behind 
@@ -178,11 +178,11 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 
     $ less error
-	    Invalid input
+        Invalid input
 
 6.
 
-	$ cat longtimetosee | ./selpg -s 1 -e 2 -l 5
+    $ cat longtimetosee | ./selpg -s 1 -e 2 -l 5
 
         I see your smile,lies behind 
     	In this place,you entered my life 
