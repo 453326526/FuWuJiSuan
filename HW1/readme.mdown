@@ -127,10 +127,11 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
 3.
 	
-	$ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
+
+    $ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
 
     $ less output
-    
+
         In this place,you entered my life 
     	How I wish,you were still mine 
     	I know that if I see you again 
@@ -139,7 +140,7 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     	Lose track of time,with you 
     	Talking about our lives 
     	To show you a whole new side of me 
-    	And see the changes we<A3><A7>ve made,can we 
+    	And see the changes we have made,can we 
     	Be more than we have been 
     	Start our story again 
     	All I can say,is tell you just one thing 
