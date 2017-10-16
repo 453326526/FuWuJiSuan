@@ -235,5 +235,21 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     	Talking about our lives 
     	To show you a whole new side of me 
     	And see the changes we have made,can we
+7.
+
+	$ ./selpg -s 1 -e 2 -l 5 longtimetosee | wc
+		从longtimetosee读取第1页到第2页，一页设置为5行
+		同时 显示选定范围的页中包含的行数、字数和字符数。
+
+		10      61     313
+
+8.
+
+	$ ./selpg -s -2 -e 3 -l 5 longtimetosee >nul
+		从longtimetosee读取第2页到第3页，一页设置为5行
+		这里重定向将输出写到nul里面,显然是非法的
+
+		Invalid input
+
 
 
