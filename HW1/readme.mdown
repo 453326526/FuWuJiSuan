@@ -87,7 +87,45 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     	Beside that cafe we met
 
 2.
+	
+	$ ./selpg -s 0 -e 1 -f longtimetosee.txt
 
+		I walk these streets,searching to find 
+		The steps that we left behind 
+		Your lonely eyes stare back at mine 
+		In pictures from that time 
+		I hold my heart,closing my eyes 
+		I see your smile,lies behind 
+		In this place,you entered my life 
+		How I wish,you were still mine 
+		I know that if I see you again 
+		Beside that cafe we met 
+		I had forget about the past 
+		Lose track of time,with you 
+		Talking about our lives 
+		To show you a whole new side of me 
+		And see the changes we have made,can we 
+		Be more than we have been 
+		Start our story again 
+		All I can say,is tell you just one thing 
+		I hold my heart,closing my eyes 
+		I see your smile,lies behind 
+		In this place,you entered my life 
+		How I wish,you were still mine 
+		I know that if I see you again 
+		Beside that cafe we met 
+		I had forget about the past 
+		Lose track of time,with you 
+		Talking about our lives 
+		To show you a whole new side of me 
+		And see the changes we have made,can we 
+		Be more than we have been 
+		Start our story again 
+		All I can say,is tell you just one thing 
+	
+
+3.
+	
 	$ ./selpg -s 1 -e 2 -l 6 longtimetosee >output
 
     $ less output
@@ -104,21 +142,8 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     	Be more than we have been 
     	Start our story again 
     	All I can say,is tell you just one thing 
-
-3.
-
-    $ cat longtimetosee | ./selpg -s 1 -e 2 -l 5
-
-        I see your smile,lies behind 
-    	In this place,you entered my life 
-    	How I wish,you were still mine 
-    	I know that if I see you again 
-    	Beside that cafe we met 
-    	I had forget about the past 
-    	Lose track of time,with you 
-    	Talking about our lives 
-    	To show you a whole new side of me 
-    	And see the changes we have made,can we 
+	
+     
 
 
 4.
@@ -137,8 +162,8 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
     	Beside that cafe we met 
     
 5.
-
-    $ selpg -s -20 -e 3 -l 10 longtimetosee >output 2>error
+	
+    $ ./selpg -s -20 -e 3 -l 10 longtimetosee >output 2>error
     $ less output
     
     Usage of selpg:
@@ -154,4 +179,20 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 
     $ less error
 	    Invalid input
+
+6.
+
+	$ cat longtimetosee | ./selpg -s 1 -e 2 -l 5
+
+        I see your smile,lies behind 
+    	In this place,you entered my life 
+    	How I wish,you were still mine 
+    	I know that if I see you again 
+    	Beside that cafe we met 
+    	I had forget about the past 
+    	Lose track of time,with you 
+    	Talking about our lives 
+    	To show you a whole new side of me 
+    	And see the changes we have made,can we
+
 
