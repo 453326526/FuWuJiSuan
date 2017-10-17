@@ -252,4 +252,65 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 		Invalid input
 
 
+9.
 
+	$ ./selpg
+		当参数不够时候会弹出selpg的使用规则
+
+		./selpg: not enough arguments
+
+		This is the selpg.
+		selpg -s=Number -e=Number [options] [filename]
+		-s=Number	Start from Page <number>.
+		-e=Number	End to Page <number>.
+		-f		[options]Specify that the pages are sperated by \f.
+		[filename] ---------- Read input from this file.
+		If filename is not given, it will read input from stdin. Ctrl+D to cutout.
+
+10.
+	
+	$ ./selpg -e 5 -l 5
+		若参数不对并且不全的时候也会弹出selpg的使用规则
+
+		./selpg: not enough arguments
+
+		This is the selpg.
+		selpg -s=Number -e=Number [options] [filename]
+		-s=Number	Start from Page <number>.
+		-e=Number	End to Page <number>.
+		-f		[options]Specify that the pages are sperated by \f.
+		[filename] ---------- Read input from this file.
+		If filename is not given, it will read input from stdin. Ctrl+D to cutout.
+
+11.
+
+	$ ./selpg -s -2 -e 3 -l 5 longtimetosee >output 2>error
+		selpg将第2页到第3页(每页5行)写至标准输出，标准输出被重定向至output
+		selpg写至标准错误的所有内容都被重定向至error
+	$ less output
+
+		I see your smile,lies behind 
+		In this place,you entered my life 
+		How I wish,you were still mine 
+		I know that if I see you again 
+		Beside that cafe we met 
+		I had forget about the past 
+		Lose track of time,with you 
+		Talking about our lives 
+		To show you a whole new side of me 
+		And see the changes we<A3><A7>ve made,can we 
+
+	$ less error
+		none（正确运行所以没有东西写入error）
+
+12.
+	
+	$ ./selpg -s -2 -e 3 -l 5 longtimetosee >output 2>error &
+		在“后台”运行进程的能力。他会显示该进程的pid
+		selpg将第2页到第3页(每页5行)写至标准输出，标准输出被重定向至output
+		selpg写至标准错误的所有内容都被重定向至error
+		
+		[5] 2997
+
+
+	

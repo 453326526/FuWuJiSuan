@@ -1,0 +1,7 @@
+This is the selpg.
+	selpg -s=Number -e=Number [options] [filename]
+	-s=Number	Start from Page <number>.
+	-e=Number	End to Page <number>.
+	-f		[options]Specify that the pages are sperated by \f.
+	[filename] ---------- Read input from this file.
+	If filename is not given, it will read input from stdin. Ctrl+D to cutout.
