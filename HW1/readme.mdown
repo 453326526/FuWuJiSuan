@@ -206,19 +206,17 @@ selpg 对所给的页号进行合理性检查；换句话说，它会检查两�
 		会直接将错误信息即Invalidinput导入到error里面，而在output里面导出selpg的使用方法
     $ less output
     
-    Usage of selpg:
-    
-    This is the selpg.
-        selpg -s=Number -e=Number [options] [filename]
-        -s=Number       Start from Page <number>.
-        -e=Number       End to Page <number>.
-        -f              [options]Specify that the pages are sperated by \f.
-        [filename] ---------- Read input from this file.
-        If filename is not given, it will read input from stdin. Ctrl+D to cutout.
-
-
-    $ less error
-        Invalid input
+		Usage of selpg:
+		  
+		This is the selpg.
+		selpg -s=Number -e=Number [options] [filename]
+		-s=Number       Start from Page <number>.
+		-e=Number       End to Page <number>.
+		-f              [options]Specify that the pages are sperated by \f.
+		[filename] ---------- Read input from this file.
+		If filename is not given, it will read input from stdin. Ctrl+D to cutout.
+	$ less error
+		Invalid input
 
 6.
 
