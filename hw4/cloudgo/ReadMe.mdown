@@ -1,8 +1,10 @@
 #服务计算第四次作业——Cloudgo
 
-- ##martini  框架
-Martini是一个强大为了编写模块化Web应用而生的GO语言框架.支持URL参数 通配符和正则表达式， 路由捆绑到一个特定的HTTP方法(GET POST HEAD等)
-- ##martini 功能列表
+- ## martini  框架
+
+	Martini是一个强大为了编写模块化Web应用而生的GO语言框架.支持URL参数 通配符和正则表达式， 路由捆绑到一个特定的HTTP方法(GET POST HEAD等)
+- ## martini 功能列表
+
 		使用极其简单.
 		无侵入式的设计.
 		很好的与其他的Go语言包协同使用.
@@ -12,7 +14,7 @@ Martini是一个强大为了编写模块化Web应用而生的GO语言框架.支�
 		框架内已拥有很好的开箱即用的功能支持.
 		完全兼容http.HandlerFunc接口.
 
-- ##下载martini  框架
+- ## 下载martini框架
 ```
 go get github.com/go-martini/martini
 ```
@@ -31,7 +33,7 @@ go get github.com/go-martini/martini
 	  m.Run()
 	}
 ```
-- ##运行
+- ## 运行
 ```
 go run http.go
 ```
