@@ -34,17 +34,17 @@ go get github.com/go-martini/martini
 ```
 - ## 运行
 ```
-go run http.go
+go run hello.go
 ```
 
-- ### 浏览器打开localhost
+- ## 浏览器打开localhost
 ![](http://i2.bvimg.com/617695/cedc0e0896037208.png)
 
-- ### Terminal显示
+- ## Terminal显示
 
 ![](http://i2.bvimg.com/617695/88f46ae20872e44e.png)
 
-- ### curl测试 
+- ## curl测试 
 
 ```
 curl  -v  http://localhost:3000/
