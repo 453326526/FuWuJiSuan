@@ -1,0 +1,63 @@
+#服务计算第四次作业——Cloudgo
+
+- ##martini  框架
+Martini是一个强大为了编写模块化Web应用而生的GO语言框架.支持URL参数 通配符和正则表达式， 路由捆绑到一个特定的HTTP方法(GET POST HEAD等)
+- ##martini 功能列表
+		使用极其简单.
+		无侵入式的设计.
+		很好的与其他的Go语言包协同使用.
+		超赞的路径匹配和路由.
+		模块化的设计 - 容易插入功能件，也容易将其拔出来.
+		已有很多的中间件可以直接使用.
+		框架内已拥有很好的开箱即用的功能支持.
+		完全兼容http.HandlerFunc接口.
+
+- ##下载martini  框架
+```
+go get github.com/go-martini/martini
+```
+
+- ## 首先编写hello.go程序，可直接按照教程编写即可
+```go
+	package main
+
+	import "github.com/go-martini/martini"
+
+	func main() {
+	  m := martini.Classic()
+	  m.Get("/", func() string {
+		return "Hello world!lmstone"
+	  })
+	  m.Run()
+	}
+```
+- ##运行
+```
+go run http.go
+```
+
+- ### 浏览器打开localhost
+![](http://i2.bvimg.com/617695/cedc0e0896037208.png)
+
+- ### Terminal显示
+
+![](http://i2.bvimg.com/617695/88f46ae20872e44e.png)
+
+- ### curl测试 
+
+```
+curl  -v  http://localhost:3000/
+```
+
+![](http://i2.bvimg.com/617695/5507ec20270bb6d7.png)
+
+
+- ## 压力测试
+```
+ab -n 1000 -c 100 http://localhost:3000/
+```
+![](http://i2.bvimg.com/617695/94f01b7e765c2897.png)
+![](http://i2.bvimg.com/617695/e315df6a517fba25.png)
+
+		由图中可以得到，50%的请求耗时62ms
+		由图中可以得到，100%的请求耗时123ms
