@@ -7,11 +7,11 @@ import (
 )
 
 const (
-    PORT string = "8080"
+    PORT string = "3030"
 )
 
 func main() {
-	// To get port, if not given, it's 8080
+	// To get port, if not given, it's 3030
     port := os.Getenv("PORT")
     if len(port) == 0 {
         port = PORT
