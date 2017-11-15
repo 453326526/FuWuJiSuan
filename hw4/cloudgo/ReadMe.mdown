@@ -57,8 +57,8 @@ curl  -v  http://localhost:3000/
 ```
 ab -n 1000 -c 100 http://localhost:3000/
 ```
+
 ![](http://i2.bvimg.com/617695/94f01b7e765c2897.png)
-![](http://i2.bvimg.com/617695/e315df6a517fba25.png)
  
 		由图中可以得到，50%的请求耗时62ms
 		由图中可以得到，100%的请求耗时123ms
