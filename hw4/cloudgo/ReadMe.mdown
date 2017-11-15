@@ -34,15 +34,15 @@ go get github.com/go-martini/martini
 ```
 - ## 运行
 ```
-go run hello.go
+go run main.go
 ```
 
 - ## 浏览器打开localhost
-![](http://i2.bvimg.com/617695/cedc0e0896037208.png)
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw4/cloudgo/photos/localhost1.png)
 
 - ## Terminal显示
 
-![](http://i2.bvimg.com/617695/88f46ae20872e44e.png)
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw4/cloudgo/photos/terminal1.png)
 
 - ## curl测试 
 
