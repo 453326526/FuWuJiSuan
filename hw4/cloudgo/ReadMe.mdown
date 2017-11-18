@@ -50,7 +50,7 @@ go run main.go
 curl  -v  http://localhost:3000/
 ```
 
-![](http://i2.bvimg.com/617695/5507ec20270bb6d7.png)
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw4/cloudgo/photos/curl.png)
 
 
 - ## 压力测试
