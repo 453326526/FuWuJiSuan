@@ -26,14 +26,11 @@ cloudgo-io利用negroni和mux实现了简单的web功能。
 使用了Negroni的logging中间件，第一次访问是这样的：
 ![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/qingqiu.png)
 
-可以看见程序相应了客户端的请求，返回了主页，以及静态目录的css文件和js文件   
+从终端中可以看出服务端返回了主页，以及静态目录的css文件和js文件   
 访问`localhost:8080/api`会返回一串JSON数据，在test.js 中使用Jquery的Ajax方法请求这个地址，在本地的console记录下得到的数据：  
-打开firefox的开发者工具，可以看到console记录下了返回的数据   
-```
-111111
-Hello from Go!
+可以在网页上看到如下显示 
 
-```
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/api.png)
 
 ## 返回501错误
 访问`localhost:8080/unknown`会返回一个501错误。
