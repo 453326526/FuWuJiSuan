@@ -37,11 +37,16 @@ Hello from Go!
 
 ## 返回501错误
 访问`localhost:8080/unknown`会返回一个501错误。
+
 ![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/501error.png)
+
 同时服务端也会有相关显示
+
 ![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/terminal501.png)
+
 ## 其他返回错误
 访问除开`localhost:8080/unknown`以外的后缀名会返回404
+
 ![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/wufafangwen.png)
 
  
