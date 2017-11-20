@@ -13,38 +13,35 @@ cloudgo-io利用negroni和mux实现了简单的web功能。
 本次实验实现的是一个简单的成绩记录系统，输入你的用户名，密码，以及语数外三科成绩后，登录后可以看到自己的个人信息
 截图如下：
 ###登录
-![]()
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/denglu.png)
 ###表格显示
-![]()
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/houtai.png)
+###登录时的终端
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/teminal.png)
 ###后台显示
-![]()
-###返回501错误
-访问`localhost:8080/unknown`会返回一个501错误。
-![]()
-###其他返回错误
-访问除开`localhost:8080/unknown`以外的后缀名会返回404
-![]()
-
 使用了Negroni的logging中间件，第一次访问是这样的：
-```
-[negroni] listening on :8080
-[negroni] 2017-11-16T05:34:13-08:00 | 200 | 	 2.357753ms | localhost:8080 | GET / 
-[negroni] 2017-11-16T05:34:13-08:00 | 200 | 	 56.266µs | localhost:8080 | GET /main.css 
-[negroni] 2017-11-16T05:34:13-08:00 | 200 | 	 25.696µs | localhost:8080 | GET /test.js 
-[negroni] 2017-11-16T05:34:13-08:00 | 404 | 	 36.723µs | localhost:8080 | GET /favicon.ico 
-[negroni] 2017-11-16T05:34:13-08:00 | 404 | 	 37.846µs | localhost:8080 | GET /favicon.ico 
-```
-![]()
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/qingqiu.png)
 可以看见程序相应了客户端的请求，返回了主页，以及静态目录的css文件和js文件   
 访问`localhost:8080/api`会返回一串JSON数据，在test.js 中使用Jquery的Ajax方法请求这个地址，在本地的console记录下得到的数据：  
-打开firefox的开发者工具，可以看到console记录下了返回的数据    
-
+打开firefox的开发者工具，可以看到console记录下了返回的数据   
 ```
 111111
 Hello from Go!
 
 ```
-对应在服务端程序也可以看到，请求了/api路径    
+
+###返回501错误
+访问`localhost:8080/unknown`会返回一个501错误。
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/501error.png)
+同时服务端也会有相关显示
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/terminal501.png)
+###其他返回错误
+访问除开`localhost:8080/unknown`以外的后缀名会返回404
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/wufafangwen.png)
+
+ 
+
+程序也可以看到，请求了/api路径    
 ```
 [negroni] 2017-11-16T06:49:38-08:00 | 200 | 	 113.166µs | localhost:8080 | GET /api
 ```
