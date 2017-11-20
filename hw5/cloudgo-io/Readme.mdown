@@ -53,9 +53,10 @@ Hello from Go!
 
 程序也可以看到，请求了/api路径    
 ```
-[negroni] 2017-11-16T06:49:38-08:00 | 200 | 	 113.166µs | localhost:8080 | GET /api
+[negroni] 2017-11-20T09:25:00-08:00 | 200 | 	 120.53µs | localhost:8080 | GET /api
 ```
 访问`localhost:8080/unknown`浏览器会看见501 not implement的字样    
 而服务端也会显示出现了501错误：
-![]()
+
+![](https://github.com/453326526/FuWuJiSuan/blob/master/hw5/cloudgo-io/photos/terminal501.png)
 
