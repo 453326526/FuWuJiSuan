@@ -2,10 +2,9 @@
 
 在 java 的世界中， jdbc pk orm 是最常见的，目前 ORM 占上风。 golang 中存在同样问题！
 
-	1. xorm 推荐，有完善中文文档：[xorm](https://github.com/go-xorm/xorm)
-	[博客](http://blog.csdn.net/pmlpml/article/details/78602290#四构建数据服务)
-	2. gorm 推荐，：[gorm](https://github.com/jinzhu/gorm)
-	3. beego orm 有较完善的中支持： [beego orm](https://beego.me/docs/mvc/model/overview.md)
+1. xorm 推荐，有完善中文文档：[xorm](https://github.com/go-xorm/xorm)
+2. gorm 推荐，：[gorm](https://github.com/jinzhu/gorm)
+3. beego orm 有较完善的中支持： [beego orm](https://beego.me/docs/mvc/model/overview.md)
 
 
 ## 命令列表
