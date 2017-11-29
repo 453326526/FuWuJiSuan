@@ -36,6 +36,86 @@
 	即，在service层中，就可以完成与数据库的交互，省去了dao（持久层）结构。
 	不仅程序结构上得到了很大的简化，编程效率也有很大的提升。
 
+## 使用小结
+
+### 连接 
+```go
+func newXorm()  { 
+   engine, _ = xorm.NewEngine("mysql", "数据库名称:数据库连接密码@(数据库地址:3306)/数据库实例名称?charset=utf8")
+   tbMapper := core.NewPrefixMapper(core.SnakeMapper{}, "prefix_")
+   engine.SetTableMapper(tbMapper)
+}
+```
+### 建表
+以config表为例
+config表字段为：id,varname,value...
+
+```go
+type Config struct {
+   Id      int
+Varname string
+Value   string
+}
+```
+在定义结构体时字段名必须为大写,否则报错
+
+若config表结构中无Id作为自增主键，则可以通过 `orm:"pk"`来定义
+
+### 查询
+
+```go
+newXorm()
+var config []Config
+sql := "SELECT `varname`,`value` FROM `onfig`"
+engine.Sql(sql).Find(&config) //得到的config是一个结构数据
+
+newXorm()
+data,_ := engine.QueryString("SELECT `varname`,`value` FROM `config`")  //得到的是一个[]map[string][string]类型的
+
+newXorm()
+var ret Config
+engine.Where("id= ?", id).Get(&ret)
+return ret.Value //也可以通过其他的方法查询
+
+var ret Config
+ret.Id = id
+has,_ := engine.Get(&ret)
+```
+
+### 更新
+
+```go
+newXorm()
+var ret Config
+ret.Varname= varname
+_,err := engine.Update(&ret, &Config{Id:id)
+官方文档中有一种方法是将。Id(id)放在前面，测试了一下报错，主键冲突。
+
+newXorm()
+var ret Config
+ret.Value = value
+engine.Cols("value").Update(&ret,Config{Id:id})
+使用上述方法将需要更新的列写在Clos中，是因为 value有可能为0，此时直接用第一种方法是不生效的
+若需要更新的值为0或nil将会不做更新
+```
+
+### 添加
+
+```go
+var data Config
+data.Varname = varname
+data.Value = value
+newXorm()
+_,err := engine.Insert(&data)
+```go
+
+### 删除
+
+```go
+newXorm()
+var ret Config
+engine.Id(id).Delete(&ret)
+```go
 
 ## 测试
 
