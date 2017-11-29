@@ -107,7 +107,7 @@ data.Varname = varname
 data.Value = value
 newXorm()
 _,err := engine.Insert(&data)
-```go
+```
 
 ### 删除
 
@@ -115,7 +115,7 @@ _,err := engine.Insert(&data)
 newXorm()
 var ret Config
 engine.Id(id).Delete(&ret)
-```go
+```
 
 ## 测试
 
